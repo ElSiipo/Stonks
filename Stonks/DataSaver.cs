@@ -1,10 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Newtonsoft.Json;
+using System.IO;
 
 namespace Stonks
 {
-    class DataSaver
+    public class DataSaver
     {
+        public void AppendSave(StonkData data)
+        {
+            if (IsLatest(data))
+            {
+                var jsonData = JsonConvert.SerializeObject(data);
+                using var destination = File.AppendText($"c:\\{data.Name}.txt");
+                destination.Write(jsonData);
+            }
+        }
+
+        private bool IsLatest(StonkData data)
+        {
+
+
+            return true;
+        }
     }
 }
