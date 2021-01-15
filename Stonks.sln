@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stonks", "Stonks\Stonks.csproj", "{797531D4-972B-4495-9DA6-6B4A7AFDD2BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StonksTests", "StonksTests\StonksTests.csproj", "{CA129FD8-0E29-4031-97E7-528402B816DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{797531D4-972B-4495-9DA6-6B4A7AFDD2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{797531D4-972B-4495-9DA6-6B4A7AFDD2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{797531D4-972B-4495-9DA6-6B4A7AFDD2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{797531D4-972B-4495-9DA6-6B4A7AFDD2BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA129FD8-0E29-4031-97E7-528402B816DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA129FD8-0E29-4031-97E7-528402B816DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA129FD8-0E29-4031-97E7-528402B816DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA129FD8-0E29-4031-97E7-528402B816DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19270EC2-2668-40BD-ADD7-57B02AF31443}
+	EndGlobalSection
+EndGlobal
