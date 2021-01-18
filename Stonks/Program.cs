@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Stonks
 {
     class Program : DataGetter
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var dataGetter = new DataGetter();
             var dataConverter = new DataConverter();
@@ -24,6 +25,8 @@ namespace Stonks
 
             foreach(var stonk in stonkModels)
             {
+                await DataSaver.SaveAppendAsync(stonk);
+
                 Console.WriteLine(string.Format("{0,30} | {1,8} |{2,8}|{3,15}|{4,8}|{5,8}|{6,8}|{7,8}|", 
                     stonk.Name, 
                     stonk.LastUpdated,
@@ -34,8 +37,6 @@ namespace Stonks
                     stonk.HighestToday, 
                     stonk.LowestToday));
             }
-
-            Console.ReadLine();
         }
     }
 }

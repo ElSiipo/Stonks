@@ -1,4 +1,5 @@
 using Stonks;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace StonksTests
@@ -6,26 +7,18 @@ namespace StonksTests
     public class StonksTests
     {
         [Fact]
-        public void TestMethod1()
-        {
-            var stonk = new DataConverter().ConvertToStonkModel(Testdata);
-
-        }
-
-        [Fact]
-        public void FileShouldBeAppended()
+        public async Task FileShouldBeAppended()
         {
             var converter = new DataConverter();
             var stonk = converter.ConvertToStonkModel(Testdata);
             var newerStonk = converter.ConvertToStonkModel(NewerTestdata);
             
-            var saver = new DataSaver();
-            saver.AppendSave(stonk);
-            saver.AppendSave(newerStonk);
+            await DataSaver.SaveAppendAsync(stonk);
+            await DataSaver.SaveAppendAsync(newerStonk);
 
-            var loader = new DataLoader();
+            var loadedData = await DataLoader.LoadDatasAsync(stonk.Name);
 
-            var loadedData = loader.LoadStonkDatas(stonk.Name);
+            Assert.True(loadedData.Count == 2);
         }
 
         private string Testdata => @"ZAPTEC

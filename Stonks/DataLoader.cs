@@ -1,17 +1,25 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Stonks
 {
     public class DataLoader
     {
-        public List<StonkData> LoadStonkDatas(string stonkName)
+        public static async Task<List<StonkData>> LoadDatasAsync(string stonkName)
         {
-            string jsonDataFromFile = File.ReadAllText($"c:\\{stonkName}.txt");
-            List<StonkData> stonkDatas = JsonConvert.DeserializeObject<List<StonkData>>(jsonDataFromFile);
+            var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            var folderName = $"{userFolder}\\Stonks\\";
 
-            return stonkDatas;
+            if(!File.Exists($"{folderName}{stonkName}.txt"))
+            {
+                return new List<StonkData>();
+            }
+
+            string jsonDataFromFile = await File.ReadAllTextAsync($"{folderName}{stonkName}.txt");
+            return JsonConvert.DeserializeObject<List<StonkData>>(jsonDataFromFile);
         }
     }
 }
